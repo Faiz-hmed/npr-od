@@ -1,0 +1,36 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: od-deployment
+  labels:
+    app : clocalizer
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app : clocalizer
+  template:
+    metadata:
+      labels:
+        app : clocalizer
+    spec:
+      containers:
+      - name: ods
+        image: gcr.io/lucky-outpost-354817/npr_od_service:v1.0
+        imagePullPolicy: IfNotPresent
+
+        ports:
+        - containerPort: 8501
+          protocol: TCP
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: od-service
+spec:
+  selector:
+    app: clocalizer
+  ports:
+  - protocol: TCP
+    port: 80
+    targetPort: 8501
