@@ -1,4 +1,4 @@
-FROM tensorflow/serving:2.80
+FROM tensorflow/serving:2.8.0
 
 WORKDIR /models
 

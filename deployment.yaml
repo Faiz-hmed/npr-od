@@ -1,7 +1,7 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: od-deployment
+  name: npr-od
   labels:
     app : clocalizer
 spec:
@@ -17,7 +17,7 @@ spec:
       containers:
       - name: ods
         image: gcr.io/lucky-outpost-354817/npr_od_service:v1.0
-        imagePullPolicy: IfNotPresent
+        imagePullPolicy: Always
 
         ports:
         - containerPort: 8501
