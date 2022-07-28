@@ -1,0 +1,9 @@
+# contents of "Dockerfile.template"
+
+FROM tensorflow/serving:2.8.0
+
+WORKDIR /models
+
+ADD ${directory_to_add} ./
+
+ENV MODEL_NAME NumPlateDetector
