@@ -1,5 +1,3 @@
-# contents of "Dockerfile.template"
-
 FROM tensorflow/serving:2.8.0
 
 RUN mkdir -p /models/NumPlateDetector/1
