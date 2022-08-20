@@ -2,8 +2,9 @@
 
 FROM tensorflow/serving:2.8.0
 
-WORKDIR /models
+RUN mkdir -p /models/${model_name}/${directory_to_add}
+WORKDIR /models/${model_name}/${directory_to_add}
 
-ADD ${directory_to_add} ./
+COPY ${directory_to_add} ./
 
-ENV MODEL_NAME NumPlateDetector
+ENV MODEL_NAME ${model_name}
